@@ -5,6 +5,7 @@ import mjml from "gulp-mjml";
 import mjmlEngine from "mjml";
 import juice from "premailer-gulp-juice";
 import htmlmin from "gulp-htmlmin";
+import mocha from "gulp-mocha";
 
 const outputFolder = "dist";
 const sourceFolder = "src";
@@ -30,14 +31,16 @@ gulp.task("build", (done) => {
 		.pipe(mjml(mjmlEngine, { minify: false }))
 		// inline css
 		.pipe(juice())
+		.pipe(gulp.dest(`./${outputFolder}/fat`))
 		// minify file
 		.pipe(htmlmin(htmlMinOptions))
-		.pipe(gulp.dest(`./${outputFolder}`));
-
-	//TODO:
-	// wcag check
+		.pipe(gulp.dest(`./${outputFolder}/diet`));
 
 	done();
 });
 
-gulp.task("default", series("clean", "build"));
+gulp.task("a11y-checks", (done) => {
+	return gulp.src("tests/**/*.spec.ts", { read: false }).pipe(mocha({}));
+});
+
+gulp.task("default", series("clean", "build", "a11y-checks"));

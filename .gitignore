@@ -130,3 +130,7 @@ dist
 .vs
 .vscode
 .idea
+
+# A11y test results
+
+results/

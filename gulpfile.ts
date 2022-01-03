@@ -16,6 +16,14 @@ gulp.task("clean", (done) => {
 });
 
 gulp.task("build", (done) => {
+	// See https://github.com/kangax/html-minifier#options-quick-reference
+	const htmlMinOptions = {
+		collapseWhitespace: true,
+		conservativeCollapse: true,
+		minifyCSS: true,
+		keepClosingSlash: true,
+	};
+
 	gulp
 		.src(`${sourceFolder}/**/*.mjml`)
 		// build mjml
@@ -23,7 +31,7 @@ gulp.task("build", (done) => {
 		// inline css
 		.pipe(juice())
 		// minify file
-		.pipe(htmlmin({ collapseWhitespace: true }))
+		.pipe(htmlmin(htmlMinOptions))
 		.pipe(gulp.dest(`./${outputFolder}`));
 
 	//TODO:

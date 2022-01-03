@@ -3,6 +3,7 @@ import * as del from "del";
 import log from "fancy-log";
 import mjml from "gulp-mjml";
 import mjmlEngine from "mjml";
+import juice from "premailer-gulp-juice";
 
 const outputFolder = "dist";
 const sourceFolder = "src";
@@ -16,15 +17,14 @@ gulp.task("clean", (done) => {
 gulp.task("build", (done) => {
 	gulp
 		.src(`${sourceFolder}/**/*.mjml`)
+		// build mjml
 		.pipe(mjml(mjmlEngine, { minify: false }))
+		// inline css
+		.pipe(juice())
 		.pipe(gulp.dest(`./${outputFolder}`));
 
-	// build mjml
-
-	// inline css
-
+	//TODO:
 	// minify file
-
 	// wcag check
 
 	done();

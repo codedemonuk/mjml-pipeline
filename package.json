@@ -13,10 +13,13 @@
     "@types/mjml": "^4.7.0",
     "@types/mocha": "^9.0.0",
     "@types/node": "14",
+    "@types/commonmark": "~0.27.5",
+    "@types/through2": "^2.0.36",
     "accessibility-checker": "^3.1.13",
     "chai": "^4.3.4",
     "del": "^6.0.0",
     "fancy-log": "^1.3.3",
+    "front-matter-markdown": "^0.4.5",
     "glob": "^7.2.0",
     "gulp": "^4.0.2",
     "gulp-htmlmin": "^5.0.1",
@@ -27,8 +30,11 @@
     "mjml": "^4.11.0",
     "mocha": "^9.1.3",
     "premailer-gulp-juice": "^0.1.7",
+    "through2": "^4.0.2",
     "ts-node": "^10.4.0",
-    "typescript": "4"
+    "typescript": "4",
+    "vinyl": "^2.2.1",
+    "commonmark": "~0.30.0" 
   },
   "dependencies": {}
 }

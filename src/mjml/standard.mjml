@@ -1,7 +1,7 @@
 <mjml>
 <mj-head>
-    <mj-title><mj-raw>#{subject}</mj-raw></mj-title>
-    <mj-preview><mj-raw>#{preview}</mj-raw></mj-preview>
+    <mj-title>#{subject}</mj-title>
+    <mj-preview>#{preview}</mj-preview>
     <mj-breakpoint width="320px" />
 </mj-head>
     <mj-body>

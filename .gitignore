@@ -134,3 +134,6 @@ dist
 # A11y test results
 
 results/
+
+# macOS resources
+.DS_Store
